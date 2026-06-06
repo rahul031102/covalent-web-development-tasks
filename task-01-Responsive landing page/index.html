@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luminary — The Intelligence Layer for Modern Teams</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== CURSOR ===================== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ===================== CANVAS PARTICLES ===================== -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#" class="nav-logo" aria-label="Luminary home">
+        <span class="logo-mark">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" stroke="url(#logoGrad)" stroke-width="1.5" fill="none"/>
+            <path d="M14 6L22 10.5V17.5L14 22L6 17.5V10.5L14 6Z" fill="url(#logoGrad)" opacity="0.3"/>
+            <path d="M14 10L18 12.5V15.5L14 18L10 15.5V12.5L14 10Z" fill="url(#logoGrad)"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="2" y1="2" x2="26" y2="26">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">Luminary</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero" class="nav-link active">Product</a></li>
+        <li><a href="#stats" class="nav-link">Solutions</a></li>
+        <li>
+          <a href="#" class="nav-link has-badge">Enterprise
+            <span class="nav-badge">New</span>
+          </a>
+        </li>
+        <li><a href="#" class="nav-link">Pricing</a></li>
+        <li><a href="#" class="nav-link">Docs</a></li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <div class="nav-cta">
+        <a href="#" class="btn-ghost">Sign in</a>
+        <a href="#" class="btn-nav-primary">
+          <span>Get started</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <ul class="mobile-links" role="list">
+        <li><a href="#hero" class="mobile-link">Product</a></li>
+        <li><a href="#stats" class="mobile-link">Solutions</a></li>
+        <li><a href="#" class="mobile-link">Enterprise</a></li>
+        <li><a href="#" class="mobile-link">Pricing</a></li>
+        <li><a href="#" class="mobile-link">Docs</a></li>
+      </ul>
+      <div class="mobile-cta">
+        <a href="#" class="btn-ghost full-w">Sign in</a>
+        <a href="#" class="btn-primary full-w">Get started free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="hero" aria-labelledby="heroHeadline">
+
+    <!-- Ambient blobs -->
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+    <div class="blob blob-3" aria-hidden="true"></div>
+
+    <!-- Grid overlay -->
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <div class="hero-container">
+      <!-- Left: Copy -->
+      <div class="hero-copy">
+
+        <!-- Announcement pill -->
+        <div class="pill animate-fade-up" style="--delay: 0.1s">
+          <span class="pill-dot"></span>
+          <span>Announcing Series B · $48M raised</span>
+          <svg class="pill-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2.5 6H9.5M7 3.5L9.5 6L7 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-headline animate-fade-up" id="heroHeadline" style="--delay: 0.2s">
+          <span class="headline-line">The intelligence</span>
+          <span class="headline-line gradient-text">layer your team</span>
+          <span class="headline-line">has been waiting for.</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="hero-sub animate-fade-up" style="--delay: 0.35s">
+          Luminary unifies your data, automates your workflows, and surfaces the insights
+          that matter — so your team ships faster and thinks clearer.
+        </p>
+
+        <!-- CTA Row -->
+        <div class="hero-cta-row animate-fade-up" style="--delay: 0.5s">
+          <a href="#" class="btn-primary">
+            <span>Start building free</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M6.5 5.5L10.5 8L6.5 10.5V5.5Z" fill="currentColor"/>
+            </svg>
+            <span>Watch demo</span>
+          </a>
+        </div>
+
+        <!-- Social proof avatars -->
+        <div class="social-proof animate-fade-up" style="--delay: 0.65s">
+          <div class="avatars">
+            <div class="avatar av1">JK</div>
+            <div class="avatar av2">ML</div>
+            <div class="avatar av3">SR</div>
+            <div class="avatar av4">+</div>
+          </div>
+          <div class="proof-text">
+            <span class="proof-strong">2,400+ teams</span> already shipping faster
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Dashboard Mockup -->
+      <div class="hero-visual animate-fade-left" style="--delay: 0.3s" aria-label="Product dashboard preview">
+
+        <!-- Glow ring behind mockup -->
+        <div class="visual-glow" aria-hidden="true"></div>
+
+        <!-- Main dashboard card -->
+        <div class="dashboard">
+
+          <!-- Dashboard top bar -->
+          <div class="dash-topbar">
+            <div class="dash-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="dash-url">app.luminary.ai / workspace</div>
+            <div class="dash-actions">
+              <div class="dash-icon-btn"></div>
+              <div class="dash-icon-btn"></div>
+            </div>
+          </div>
+
+          <!-- Dashboard sidebar -->
+          <div class="dash-body">
+            <aside class="dash-sidebar">
+              <div class="sidebar-logo">
+                <div class="s-logo-icon"></div>
+                <div class="s-logo-text"></div>
+              </div>
+              <nav class="sidebar-nav">
+                <div class="s-nav-item active">
+                  <div class="s-icon"></div>
+                  <div class="s-label"></div>
+                </div>
+                <div class="s-nav-item">
+                  <div class="s-icon"></div>
+                  <div class="s-label short"></div>
+                </div>
+                <div class="s-nav-item">
+                  <div class="s-icon"></div>
+                  <div class="s-label medium"></div>
+                </div>
+                <div class="s-nav-item">
+                  <div class="s-icon"></div>
+                  <div class="s-label"></div>
+                </div>
+                <div class="s-divider"></div>
+                <div class="s-nav-item">
+                  <div class="s-icon"></div>
+                  <div class="s-label short"></div>
+                </div>
+              </nav>
+            </aside>
+
+            <!-- Dashboard main content -->
+            <main class="dash-main">
+              <!-- Stat cards row -->
+              <div class="dash-stats-row">
+                <div class="dash-stat-card">
+                  <div class="stat-label-bar"></div>
+                  <div class="stat-value-bar large"></div>
+                  <div class="stat-delta positive">
+                    <span class="delta-arrow">↑</span>
+                    <div class="delta-bar"></div>
+                  </div>
+                </div>
+                <div class="dash-stat-card accent">
+                  <div class="stat-label-bar"></div>
+                  <div class="stat-value-bar large accent-text"></div>
+                  <div class="stat-delta positive">
+                    <span class="delta-arrow">↑</span>
+                    <div class="delta-bar"></div>
+                  </div>
+                </div>
+                <div class="dash-stat-card">
+                  <div class="stat-label-bar short"></div>
+                  <div class="stat-value-bar medium"></div>
+                  <div class="stat-delta neutral">
+                    <span class="delta-arrow">→</span>
+                    <div class="delta-bar"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chart area -->
+              <div class="dash-chart-area">
+                <div class="chart-header">
+                  <div class="chart-title-bar"></div>
+                  <div class="chart-tabs">
+                    <div class="chart-tab active"></div>
+                    <div class="chart-tab"></div>
+                    <div class="chart-tab"></div>
+                  </div>
+                </div>
+                <!-- SVG Chart -->
+                <svg class="chart-svg" viewBox="0 0 340 100" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,80 C40,72 60,68 80,58 C100,48 110,62 130,50 C150,38 160,30 180,28 C200,26 210,40 230,32 C250,24 260,18 280,14 C300,10 320,16 340,10 L340,100 L0,100 Z" fill="url(#chartGrad)"/>
+                  <path d="M0,80 C40,72 60,68 80,58 C100,48 110,62 130,50 C150,38 160,30 180,28 C200,26 210,40 230,32 C250,24 260,18 280,14 C300,10 320,16 340,10" fill="none" stroke="url(#lineGrad)" stroke-width="1.5"/>
+                  <defs>
+                    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#7c3aed"/>
+                      <stop offset="100%" stop-color="#38bdf8"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Grid lines -->
+                  <line x1="0" y1="25" x2="340" y2="25" stroke="#ffffff08" stroke-width="1"/>
+                  <line x1="0" y1="50" x2="340" y2="50" stroke="#ffffff08" stroke-width="1"/>
+                  <line x1="0" y1="75" x2="340" y2="75" stroke="#ffffff08" stroke-width="1"/>
+                  <!-- Highlight dot -->
+                  <circle cx="280" cy="14" r="3.5" fill="#a78bfa"/>
+                  <circle cx="280" cy="14" r="7" fill="#a78bfa" opacity="0.2"/>
+                </svg>
+                <!-- X axis labels -->
+                <div class="chart-x-labels">
+                  <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                </div>
+              </div>
+
+              <!-- Bottom row: activity feed + mini pie -->
+              <div class="dash-bottom-row">
+                <div class="dash-activity">
+                  <div class="activity-header-bar"></div>
+                  <div class="activity-item">
+                    <div class="activity-avatar a1"></div>
+                    <div class="activity-lines">
+                      <div class="act-line"></div>
+                      <div class="act-line short"></div>
+                    </div>
+                    <div class="activity-tag success"></div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-avatar a2"></div>
+                    <div class="activity-lines">
+                      <div class="act-line medium"></div>
+                      <div class="act-line"></div>
+                    </div>
+                    <div class="activity-tag pending"></div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-avatar a3"></div>
+                    <div class="activity-lines">
+                      <div class="act-line short"></div>
+                      <div class="act-line medium"></div>
+                    </div>
+                    <div class="activity-tag success"></div>
+                  </div>
+                </div>
+
+                <!-- Donut chart -->
+                <div class="dash-donut">
+                  <svg viewBox="0 0 80 80" width="80" height="80">
+                    <circle cx="40" cy="40" r="28" fill="none" stroke="#1e1b4b" stroke-width="10"/>
+                    <circle cx="40" cy="40" r="28" fill="none" stroke="url(#donutGrad)" stroke-width="10" stroke-dasharray="88 88" stroke-dashoffset="-10" stroke-linecap="round"/>
+                    <circle cx="40" cy="40" r="28" fill="none" stroke="#38bdf8" stroke-width="10" stroke-dasharray="35 141" stroke-dashoffset="-98" stroke-linecap="round" opacity="0.6"/>
+                    <defs>
+                      <linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#a78bfa"/>
+                        <stop offset="100%" stop-color="#7c3aed"/>
+                      </linearGradient>
+                    </defs>
+                    <text x="40" y="44" text-anchor="middle" fill="#fff" font-size="10" font-family="Syne" font-weight="700">72%</text>
+                  </svg>
+                  <div class="donut-legend">
+                    <div class="legend-row"><span class="legend-dot purple"></span><div class="legend-bar"></div></div>
+                    <div class="legend-row"><span class="legend-dot blue"></span><div class="legend-bar short"></div></div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+          </div>
+        </div>
+
+        <!-- Floating cards -->
+        <div class="float-card float-card-1 animate-float">
+          <div class="fc-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 1L10.06 5.26L14.73 5.93L11.36 9.2L12.13 13.86L8 11.67L3.87 13.86L4.64 9.2L1.27 5.93L5.94 5.26L8 1Z" fill="#fbbf24" stroke="#fbbf24" stroke-width="0.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="fc-text">
+            <span class="fc-title">97 / 100</span>
+            <span class="fc-sub">Workflow score</span>
+          </div>
+        </div>
+
+        <div class="float-card float-card-2 animate-float-slow">
+          <div class="fc-icon green">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M4 8L6.5 11L12 5" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="fc-text">
+            <span class="fc-title">+24% velocity</span>
+            <span class="fc-sub">vs last quarter</span>
+          </div>
+        </div>
+
+        <div class="float-card float-card-3 animate-float-medium">
+          <div class="fc-content-row">
+            <div class="fc-mini-avatar"></div>
+            <div class="fc-mini-lines">
+              <div class="fc-mini-line"></div>
+              <div class="fc-mini-line short"></div>
+            </div>
+          </div>
+          <div class="fc-bar-group">
+            <div class="fc-bar-row">
+              <div class="fc-bar-fill" style="width: 78%"></div>
+            </div>
+            <div class="fc-bar-row">
+              <div class="fc-bar-fill" style="width: 55%; background: #38bdf8"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator animate-fade-up" style="--delay: 1s" aria-hidden="true">
+      <div class="scroll-track">
+        <div class="scroll-thumb"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST BADGES ===================== -->
+  <section class="trust-section" aria-label="Trusted by">
+    <div class="trust-container">
+      <p class="trust-label animate-fade-up">Trusted by teams at the world's leading companies</p>
+      <div class="trust-logos animate-fade-up" style="--delay: 0.1s">
+        <!-- Logo 1: Linear-style -->
+        <div class="trust-logo">
+          <svg height="20" viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="16" font-family="Syne" font-weight="700" font-size="16" fill="currentColor">Axiom</text>
+          </svg>
+        </div>
+        <div class="trust-logo">
+          <svg height="20" viewBox="0 0 80 20" fill="none">
+            <text x="0" y="16" font-family="Syne" font-weight="700" font-size="16" fill="currentColor">Vercel</text>
+          </svg>
+        </div>
+        <div class="trust-logo">
+          <svg height="20" viewBox="0 0 80 20" fill="none">
+            <text x="0" y="16" font-family="Syne" font-weight="700" font-size="16" fill="currentColor">Retool</text>
+          </svg>
+        </div>
+        <div class="trust-logo">
+          <svg height="20" viewBox="0 0 90 20" fill="none">
+            <text x="0" y="16" font-family="Syne" font-weight="700" font-size="16" fill="currentColor">Figma</text>
+          </svg>
+        </div>
+        <div class="trust-logo">
+          <svg height="20" viewBox="0 0 100 20" fill="none">
+            <text x="0" y="16" font-family="Syne" font-weight="700" font-size="16" fill="currentColor">Notion</text>
+          </svg>
+        </div>
+        <div class="trust-logo">
+          <svg height="20" viewBox="0 0 100 20" fill="none">
+            <text x="0" y="16" font-family="Syne" font-weight="700" font-size="16" fill="currentColor">Linear</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS SECTION ===================== -->
+  <section class="stats-section" id="stats" aria-labelledby="statsHeading">
+    <div class="stats-container">
+      <!-- Section label -->
+      <div class="section-label animate-fade-up">By the numbers</div>
+      <h2 class="stats-heading animate-fade-up" id="statsHeading" style="--delay: 0.1s">
+        Built for performance.<br/>Designed for scale.
+      </h2>
+
+      <!-- Stats grid -->
+      <div class="stats-grid">
+        <div class="stat-card animate-fade-up" style="--delay: 0.1s">
+          <div class="stat-glow"></div>
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#si1)" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="url(#si1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="url(#si1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs><linearGradient id="si1" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="stat-number" data-target="2400" data-suffix="+" data-prefix="">2,400+</div>
+          <div class="stat-desc">Teams actively building with Luminary across 60+ countries</div>
+        </div>
+
+        <div class="stat-card animate-fade-up" style="--delay: 0.2s">
+          <div class="stat-glow"></div>
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="url(#si2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs><linearGradient id="si2" x1="3" y1="2" x2="21" y2="22"><stop stop-color="#fbbf24"/><stop offset="1" stop-color="#f97316"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="stat-number" data-target="99.97" data-suffix="%" data-prefix="">99.97%</div>
+          <div class="stat-desc">Uptime SLA — we stay up so your workflows never go down</div>
+        </div>
+
+        <div class="stat-card animate-fade-up" style="--delay: 0.3s">
+          <div class="stat-glow"></div>
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="url(#si3)" stroke-width="1.5"/>
+              <path d="M12 6V12L16 14" stroke="url(#si3)" stroke-width="1.5" stroke-linecap="round"/>
+              <defs><linearGradient id="si3" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#34d399"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="stat-number" data-target="4" data-suffix="x" data-prefix="">4x</div>
+          <div class="stat-desc">Average increase in deployment frequency after 30 days</div>
+        </div>
+
+        <div class="stat-card animate-fade-up" style="--delay: 0.4s">
+          <div class="stat-glow"></div>
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M17 21V19C17 16.79 15.21 15 13 15H5C2.79 15 1 16.79 1 19V21" stroke="url(#si4)" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="9" cy="7" r="4" stroke="url(#si4)" stroke-width="1.5"/>
+              <path d="M23 21V19C23 17.13 21.74 15.56 20 15.13" stroke="url(#si4)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M16 3.13C17.74 3.56 19 5.13 19 7C19 8.87 17.74 10.44 16 10.87" stroke="url(#si4)" stroke-width="1.5" stroke-linecap="round"/>
+              <defs><linearGradient id="si4" x1="1" y1="3" x2="23" y2="21"><stop stop-color="#f472b6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="stat-number" data-target="12" data-suffix="k+" data-prefix="">12k+</div>
+          <div class="stat-desc">Developers in our community shipping with Luminary daily</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

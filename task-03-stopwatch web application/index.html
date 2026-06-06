@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHRONO — Advanced Stopwatch</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════ SCROLL PROGRESS ═══════════════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">[</span>
+        CHRONO
+        <span class="logo-bracket">]</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"      class="nav-link" data-section="home">HOME</a></li>
+        <li><a href="#features"  class="nav-link" data-section="features">FEATURES</a></li>
+        <li><a href="#stopwatch" class="nav-link" data-section="stopwatch">STOPWATCH</a></li>
+        <li><a href="#about"     class="nav-link" data-section="about">ABOUT</a></li>
+        <li><a href="#contact"   class="nav-link" data-section="contact">CONTACT</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO / HOME ═══════════════════ -->
+  <section class="section" id="home">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="scan-lines"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">// PRECISION TIME TRACKING</p>
+      <h1 class="hero-title">
+        <span class="glitch" data-text="CHRONO">CHRONO</span>
+      </h1>
+      <p class="hero-subtitle">
+        A cyberpunk-grade stopwatch built for those who count every millisecond.
+      </p>
+      <div class="hero-cta">
+        <a href="#stopwatch" class="btn btn-primary">LAUNCH APP</a>
+        <a href="#features"  class="btn btn-ghost">EXPLORE</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">0.001</span><span class="stat-label">SEC ACCURACY</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">LAP RECORDS</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">OFFLINE</span></div>
+      </div>
+    </div>
+    <div class="hero-ticker">
+      <span>PRECISION &nbsp;·&nbsp; PERFORMANCE &nbsp;·&nbsp; CHRONO &nbsp;·&nbsp; PRECISION &nbsp;·&nbsp; PERFORMANCE &nbsp;·&nbsp; CHRONO &nbsp;·&nbsp;</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FEATURES ═══════════════════ -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">// SYSTEM CAPABILITIES</p>
+        <h2 class="section-title">FEATURES</h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-delay="0">
+          <div class="feature-icon">⚡</div>
+          <h3>MILLISECOND PRECISION</h3>
+          <p>Track time down to the millisecond with our high-frequency timer engine. No drift, no lag.</p>
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+        </div>
+        <div class="feature-card" data-delay="100">
+          <div class="feature-icon">🏁</div>
+          <h3>LAP TRACKING</h3>
+          <p>Record unlimited laps with instant delta calculations. Identify your fastest and slowest splits at a glance.</p>
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+        </div>
+        <div class="feature-card" data-delay="200">
+          <div class="feature-icon">🎛️</div>
+          <h3>FULL CONTROLS</h3>
+          <p>Start, pause, resume, reset — full lifecycle management with keyboard shortcut support.</p>
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+        </div>
+        <div class="feature-card" data-delay="300">
+          <div class="feature-icon">📊</div>
+          <h3>LAP ANALYTICS</h3>
+          <p>Visual lap history with best/worst indicators and cumulative time tracking in real-time.</p>
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+        </div>
+        <div class="feature-card" data-delay="400">
+          <div class="feature-icon">🌐</div>
+          <h3>OFFLINE READY</h3>
+          <p>Runs entirely in your browser. No servers, no accounts, no latency. Pure client-side execution.</p>
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+        </div>
+        <div class="feature-card" data-delay="500">
+          <div class="feature-icon">📱</div>
+          <h3>RESPONSIVE</h3>
+          <p>Pixel-perfect on every screen — from 4K monitors to mobile devices. Adaptive layout engine.</p>
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ STOPWATCH ═══════════════════ -->
+  <section class="section" id="stopwatch">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">// MAIN INTERFACE</p>
+        <h2 class="section-title">STOPWATCH</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="stopwatch-wrapper">
+        <!-- Timer Display -->
+        <div class="timer-panel">
+          <div class="timer-glow"></div>
+          <div class="timer-status" id="timerStatus">STANDBY</div>
+          <div class="timer-display" id="timerDisplay">
+            <div class="time-segment">
+              <span class="time-value" id="hours">00</span>
+              <span class="time-label">HH</span>
+            </div>
+            <span class="time-sep">:</span>
+            <div class="time-segment">
+              <span class="time-value" id="minutes">00</span>
+              <span class="time-label">MM</span>
+            </div>
+            <span class="time-sep">:</span>
+            <div class="time-segment">
+              <span class="time-value" id="seconds">00</span>
+              <span class="time-label">SS</span>
+            </div>
+            <span class="time-sep ms-sep">.</span>
+            <div class="time-segment ms-segment" id="msSegment">
+              <span class="time-value" id="milliseconds">000</span>
+              <span class="time-label">MS</span>
+            </div>
+          </div>
+
+          <style>
+            /* ── Timer shake synced to ms changes ── */
+            @keyframes msFlash {
+              0%   { opacity: 1;   text-shadow: 0 0 20px rgba(0,245,255,.5); }
+              40%  { opacity: .6;  text-shadow: 0 0 8px  rgba(0,245,255,.2); }
+              100% { opacity: 1;   text-shadow: 0 0 20px rgba(0,245,255,.5); }
+            }
+            #msSegment.ms-flash {
+              animation: msFlash 0.1s ease-out;
+            }
+          </style>
+
+          <script>
+            // Hook into the render loop to trigger shake on every ms tick
+            (function() {
+              const display   = document.getElementById('timerDisplay');
+              const msSeg     = document.getElementById('msSegment');
+              let lastMs      = -1;
+
+              // Observe milliseconds element for text changes
+              const msEl = document.getElementById('milliseconds');
+              const observer = new MutationObserver(() => {
+                const cur = msEl.textContent;
+                if (cur === lastMs) return;
+                lastMs = cur;
+
+                // ms glow flash
+                msSeg.classList.remove('ms-flash');
+                requestAnimationFrame(() => msSeg.classList.add('ms-flash'));
+
+                msSeg.addEventListener('animationend', () => {
+                  msSeg.classList.remove('ms-flash');
+                }, { once: true });
+              });
+
+              observer.observe(msEl, { childList: true, characterData: true, subtree: true });
+            })();
+          </script>
+          <div class="timer-bar">
+            <div class="timer-bar-fill" id="timerBarFill"></div>
+          </div>
+          <p class="keyboard-hint">// SPACE: start/pause &nbsp;·&nbsp; L: lap &nbsp;·&nbsp; R: reset</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-panel">
+          <button class="ctrl-btn btn-start" id="startBtn" onclick="startTimer()">
+            <span class="btn-icon">▶</span>
+            <span class="btn-label">START</span>
+          </button>
+          <button class="ctrl-btn btn-lap" id="lapBtn" onclick="recordLap()" disabled>
+            <span class="btn-icon">⊕</span>
+            <span class="btn-label">LAP</span>
+          </button>
+          <button class="ctrl-btn btn-reset" id="resetBtn" onclick="resetTimer()" disabled>
+            <span class="btn-icon">↺</span>
+            <span class="btn-label">RESET</span>
+          </button>
+        </div>
+
+        <!-- Lap History -->
+        <div class="laps-panel" id="lapsPanel">
+          <div class="laps-header">
+            <span class="laps-title">// LAP HISTORY</span>
+            <span class="laps-count" id="lapsCount">0 LAPS</span>
+          </div>
+          <div class="laps-table-header">
+            <span>LAP</span>
+            <span>SPLIT</span>
+            <span>TOTAL</span>
+            <span>DELTA</span>
+          </div>
+          <div class="laps-list" id="lapsList">
+            <div class="laps-empty" id="lapsEmpty">
+              <span>NO LAPS RECORDED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ABOUT ═══════════════════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">// SYSTEM INFO</p>
+        <h2 class="section-title">ABOUT</h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead">CHRONO is a precision timekeeping tool engineered for athletes, developers, and anyone who demands accuracy.</p>
+          <p>Built with vanilla HTML, CSS, and JavaScript — no frameworks, no dependencies, no compromise. Every millisecond is tracked using <code>performance.now()</code> for maximum accuracy and drift prevention.</p>
+          <p>The interface draws inspiration from old-school terminal aesthetics fused with modern glassmorphism — because time measurement should feel as serious as it is.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Vanilla JS</span>
+            <span class="tech-tag">performance.now()</span>
+            <span class="tech-tag">Glassmorphism</span>
+            <span class="tech-tag">CSS Animations</span>
+          </div>
+        </div>
+        <div class="about-terminal">
+          <div class="terminal-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="terminal-title">chrono.js</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="t-comment">// High-precision timer</span></p>
+            <p><span class="t-keyword">const</span> <span class="t-var">start</span> = <span class="t-fn">performance</span>.now();</p>
+            <p>&nbsp;</p>
+            <p><span class="t-keyword">function</span> <span class="t-fn">tick</span>() {</p>
+            <p>&nbsp;&nbsp;<span class="t-keyword">const</span> <span class="t-var">elapsed</span> =</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-fn">performance</span>.now() - <span class="t-var">start</span>;</p>
+            <p>&nbsp;&nbsp;<span class="t-fn">render</span>(<span class="t-var">elapsed</span>);</p>
+            <p>&nbsp;&nbsp;<span class="t-fn">requestAnimationFrame</span>(<span class="t-fn">tick</span>);</p>
+            <p>}</p>
+            <p>&nbsp;</p>
+            <p><span class="t-fn">requestAnimationFrame</span>(<span class="t-fn">tick</span>);</p>
+            <p class="t-cursor">█</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT ═══════════════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">// TRANSMISSION</p>
+        <h2 class="section-title">CONTACT</h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <p class="contact-lead">Got feedback, ideas, or bugs to report? Open a channel.</p>
+          <div class="contact-links">
+            <a href="#" class="contact-link"><span>⬡</span> GitHub</a>
+            <a href="#" class="contact-link"><span>◈</span> Twitter</a>
+            <a href="#" class="contact-link"><span>◉</span> Email</a>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <div class="contact-form">
+            <div class="form-group">
+              <label class="form-label">// NAME</label>
+              <input type="text" class="form-input" placeholder="YOUR_NAME" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">// EMAIL</label>
+              <input type="email" class="form-input" placeholder="YOUR@EMAIL.COM" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">// MESSAGE</label>
+              <textarea class="form-input form-textarea" placeholder="ENTER MESSAGE..."></textarea>
+            </div>
+            <button class="btn btn-primary full-width" onclick="handleContact(this)">TRANSMIT →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">[CHRONO]</span>
+        <span class="footer-copy">// BUILT WITH PRECISION · 2025</span>
+        <span class="footer-version">v2.0.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ BACK TO TOP ═══════════════════ -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATMOS — Weather Intelligence Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=JetBrains+Mono:wght@300;400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ░░ AMBIENT BACKGROUND PARTICLES ░░ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ░░ DYNAMIC BACKGROUND OVERLAY ░░ -->
+  <div class="bg-overlay" id="bgOverlay"></div>
+
+  <!-- ════════════════════════════════════
+       HEADER
+  ════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1"/>
+            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+            <line x1="20" y1="2"  x2="20" y2="8"  stroke="currentColor" stroke-width="1.5"/>
+            <line x1="20" y1="32" x2="20" y2="38" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="2"  y1="20" x2="8"  y2="20" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="32" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">ATMOS</span>
+          <span class="logo-sub">// WEATHER INTELLIGENCE</span>
+        </div>
+      </div>
+
+      <div class="header-meta">
+        <span class="live-dot"></span>
+        <span class="live-label" id="liveLabel">AWAITING INPUT</span>
+        <span class="header-time" id="headerTime"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════
+       SEARCH BAR
+  ════════════════════════════════════ -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="search-bar" id="searchBar">
+        <div class="search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="ENTER CITY NAME..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="search-btn" id="searchBtn" onclick="handleSearch()">
+          <span>SCAN</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <button class="geo-btn" id="geoBtn" onclick="fetchByGeolocation()" title="Use my location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+          <circle cx="12" cy="12" r="8" stroke-dasharray="3 2"/>
+        </svg>
+        <span>LOCATE</span>
+      </button>
+    </div>
+
+    <!-- Suggestions dropdown -->
+    <div class="suggestions" id="suggestions"></div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       API KEY NOTICE
+  ════════════════════════════════════ -->
+  <div class="api-notice" id="apiNotice">
+    <div class="notice-inner">
+      <span class="notice-icon">⚠</span>
+      <div class="notice-text">
+        <strong>API KEY REQUIRED</strong>
+        <span>Open <code>script.js</code> and replace <code>YOUR_API_KEY</code> with your free key from
+          <a href="https://openweathermap.org/api" target="_blank">openweathermap.org</a>
+        </span>
+      </div>
+      <button class="notice-close" onclick="this.closest('.api-notice').remove()">✕</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       LOADING STATE
+  ════════════════════════════════════ -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-content">
+      <div class="radar-rings">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="radar-sweep"></div>
+        <div class="radar-dot"></div>
+      </div>
+      <p class="loading-text" id="loadingText">ACQUIRING SIGNAL...</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       ERROR STATE
+  ════════════════════════════════════ -->
+  <div class="error-panel" id="errorPanel">
+    <div class="error-inner">
+      <div class="error-icon">⚡</div>
+      <h3 class="error-title">SIGNAL LOST</h3>
+      <p class="error-msg" id="errorMsg">Unable to retrieve weather data.</p>
+      <button class="btn-retry" onclick="hideError()">RETRY</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       MAIN WEATHER DASHBOARD
+  ════════════════════════════════════ -->
+  <main class="dashboard" id="dashboard">
+
+    <!-- ── ROW 1: Hero + Stats ── -->
+    <div class="row-hero">
+
+      <!-- Primary weather card -->
+      <div class="card card-hero glass" id="cardHero">
+        <div class="hero-location">
+          <div class="location-pin">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <h1 class="city-name" id="cityName">—</h1>
+            <p class="country-name" id="countryName">—</p>
+          </div>
+        </div>
+
+        <div class="hero-temp-wrap">
+          <div class="weather-icon-main" id="weatherIconMain">
+            <img id="weatherIconImg" src="" alt="weather" />
+          </div>
+          <div class="temp-display">
+            <span class="temp-value" id="tempValue">—</span>
+            <div class="temp-units">
+              <button class="unit-btn active" id="btnC" onclick="switchUnit('C')">°C</button>
+              <span class="unit-sep">/</span>
+              <button class="unit-btn" id="btnF" onclick="switchUnit('F')">°F</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-desc">
+          <span class="condition-badge" id="conditionBadge">—</span>
+          <span class="feels-like" id="feelsLike">Feels like —</span>
+        </div>
+
+        <div class="hero-extra">
+          <div class="mini-stat">
+            <span class="mini-label">HIGH</span>
+            <span class="mini-val" id="tempMax">—</span>
+          </div>
+          <div class="mini-divider"></div>
+          <div class="mini-stat">
+            <span class="mini-label">LOW</span>
+            <span class="mini-val" id="tempMin">—</span>
+          </div>
+          <div class="mini-divider"></div>
+          <div class="mini-stat">
+            <span class="mini-label">UPDATED</span>
+            <span class="mini-val" id="lastUpdated">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right stats column -->
+      <div class="stats-column">
+
+        <div class="card stat-card glass" data-delay="100">
+          <div class="stat-icon humidity-icon">💧</div>
+          <div class="stat-info">
+            <span class="stat-label">HUMIDITY</span>
+            <span class="stat-value" id="humidity">—</span>
+          </div>
+          <div class="stat-bar-wrap">
+            <div class="stat-bar"><div class="stat-bar-fill" id="humidityBar"></div></div>
+          </div>
+        </div>
+
+        <div class="card stat-card glass" data-delay="150">
+          <div class="stat-icon">💨</div>
+          <div class="stat-info">
+            <span class="stat-label">WIND SPEED</span>
+            <span class="stat-value" id="windSpeed">—</span>
+          </div>
+          <div class="wind-compass" id="windCompass">
+            <div class="compass-needle" id="compassNeedle"></div>
+            <span class="compass-dir" id="windDir">—</span>
+          </div>
+        </div>
+
+        <div class="card stat-card glass" data-delay="200">
+          <div class="stat-icon">🌡️</div>
+          <div class="stat-info">
+            <span class="stat-label">PRESSURE</span>
+            <span class="stat-value" id="pressure">—</span>
+          </div>
+          <div class="pressure-arc-wrap">
+            <svg class="pressure-arc" viewBox="0 0 80 45">
+              <path d="M5 40 A35 35 0 0 1 75 40" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="6" stroke-linecap="round"/>
+              <path class="arc-fill" id="pressureArc" d="M5 40 A35 35 0 0 1 75 40" fill="none" stroke="var(--amber)" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 200"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card stat-card glass" data-delay="250">
+          <div class="stat-icon">👁️</div>
+          <div class="stat-info">
+            <span class="stat-label">VISIBILITY</span>
+            <span class="stat-value" id="visibility">—</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── ROW 2: Sun + UV + Clouds ── -->
+    <div class="row-secondary">
+
+      <div class="card card-sun glass" data-delay="100">
+        <h3 class="card-title">// SUN CYCLE</h3>
+        <div class="sun-arc-container">
+          <svg class="sun-arc-svg" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid meet">
+            <!-- Track arc -->
+            <path d="M20 140 A130 130 0 0 1 280 140" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2"/>
+            <!-- Filled arc -->
+            <path class="sun-progress-arc" id="sunProgressArc"
+              d="M20 140 A130 130 0 0 1 280 140"
+              fill="none" stroke="var(--amber)" stroke-width="2"
+              stroke-dasharray="0 408" stroke-linecap="round"/>
+            <!-- Sun dot -->
+            <circle class="sun-dot" id="sunDot" cx="20" cy="140" r="8" fill="var(--amber)"/>
+            <circle id="sunDotGlow" cx="20" cy="140" r="14" fill="var(--amber)" opacity="0.2"/>
+            <!-- Horizon line -->
+            <line x1="10" y1="140" x2="290" y2="140" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="4 4"/>
+            <!-- Horizon labels -->
+            <text x="15" y="155" fill="rgba(255,255,255,.4)" font-size="9" font-family="JetBrains Mono">E</text>
+            <text x="275" y="155" fill="rgba(255,255,255,.4)" font-size="9" font-family="JetBrains Mono">W</text>
+          </svg>
+        </div>
+        <div class="sun-times">
+          <div class="sun-time-item">
+            <span class="sun-icon">🌅</span>
+            <span class="sun-label">SUNRISE</span>
+            <span class="sun-val" id="sunrise">—</span>
+          </div>
+          <div class="sun-time-item">
+            <span class="sun-icon">🌇</span>
+            <span class="sun-label">SUNSET</span>
+            <span class="sun-val" id="sunset">—</span>
+          </div>
+          <div class="sun-time-item">
+            <span class="sun-icon">⏱</span>
+            <span class="sun-label">DAYLIGHT</span>
+            <span class="sun-val" id="daylight">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-atmo glass" data-delay="150">
+        <h3 class="card-title">// ATMOSPHERE</h3>
+        <div class="atmo-grid">
+          <div class="atmo-item">
+            <div class="atmo-ring" id="cloudRing">
+              <svg viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/>
+                <circle cx="30" cy="30" r="24" fill="none" stroke="var(--ice)" stroke-width="4"
+                  stroke-dasharray="0 151" stroke-linecap="round"
+                  transform="rotate(-90 30 30)" id="cloudCircle" class="ring-progress"/>
+              </svg>
+              <span class="ring-val" id="cloudVal">—</span>
+            </div>
+            <span class="atmo-label">CLOUD COVER</span>
+          </div>
+          <div class="atmo-item">
+            <div class="atmo-ring" id="humRing">
+              <svg viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/>
+                <circle cx="30" cy="30" r="24" fill="none" stroke="var(--amber)" stroke-width="4"
+                  stroke-dasharray="0 151" stroke-linecap="round"
+                  transform="rotate(-90 30 30)" id="humCircle" class="ring-progress"/>
+              </svg>
+              <span class="ring-val" id="humVal">—</span>
+            </div>
+            <span class="atmo-label">HUMIDITY</span>
+          </div>
+          <div class="atmo-item">
+            <div class="atmo-ring">
+              <svg viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/>
+                <circle cx="30" cy="30" r="24" fill="none" stroke="#a78bfa" stroke-width="4"
+                  stroke-dasharray="0 151" stroke-linecap="round"
+                  transform="rotate(-90 30 30)" id="visCircle" class="ring-progress"/>
+              </svg>
+              <span class="ring-val" id="visVal">—</span>
+            </div>
+            <span class="atmo-label">VISIBILITY</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── ROW 3: 5-Day Forecast ── -->
+    <div class="card card-forecast glass" data-delay="200">
+      <h3 class="card-title">// 5-DAY FORECAST</h3>
+      <div class="forecast-grid" id="forecastGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- ── ROW 4: Hourly strip (today) ── -->
+    <div class="card card-hourly glass" data-delay="250">
+      <h3 class="card-title">// HOURLY — TODAY</h3>
+      <div class="hourly-scroll" id="hourlyScroll">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ════════════════════════════════════
+       EMPTY STATE (default landing)
+  ════════════════════════════════════ -->
+  <div class="empty-state" id="emptyState">
+    <div class="empty-radar">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+      <div class="radar-sweep"></div>
+      <div class="radar-dot"></div>
+    </div>
+    <h2 class="empty-title">AWAITING COORDINATES</h2>
+    <p class="empty-sub">Search a city or use geolocation to begin atmospheric scan</p>
+    <div class="empty-hints">
+      <kbd>ENTER</kbd> to search &nbsp;·&nbsp; <kbd>GEO</kbd> to locate
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer class="site-footer">
+    <span>ATMOS // Powered by <a href="https://openweathermap.org" target="_blank">OpenWeatherMap</a></span>
+    <span id="footerCoords"></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

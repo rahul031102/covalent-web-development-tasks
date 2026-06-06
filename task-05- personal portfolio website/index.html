@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rahul Kumar — Aspiring Full Stack Web Developer. CS Student passionate about MERN Stack, AI, and problem solving." />
+  <meta name="keywords" content="Rahul Kumar, Full Stack Developer, MERN Stack, Portfolio, Web Developer" />
+  <meta name="author" content="Rahul Kumar" />
+  <title>Rahul Kumar | Full Stack Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ════════════════════════════ LOADING SCREEN ════════════════════════════ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-bracket">{</span>
+        <span class="loader-initials">RK</span>
+        <span class="loader-bracket">}</span>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"></div>
+      </div>
+      <p class="loader-text">Initializing Portfolio<span class="loader-dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ SCROLL PROGRESS ════════════════════════════ -->
+  <div id="scroll-progress"></div>
+
+  <!-- ════════════════════════════ NAVBAR ════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">{</span>RK<span class="logo-bracket">}</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#accomplishments" class="nav-link">Achievements</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://github.com/rahul031102" target="_blank" class="nav-icon-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/rahul-kumar-7536a62b9" target="_blank" class="nav-icon-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <button class="nav-resume-btn" id="resume-btn">
+          <span>Resume</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        </button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════ HERO ════════════════════════════ -->
+  <section id="home" class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Available for Internships
+      </div>
+      <h1 class="hero-name reveal">
+        <span class="name-line">Rahul</span>
+        <span class="name-line accent-text">Kumar</span>
+      </h1>
+      <div class="hero-role reveal">
+        <span class="role-prefix">// </span>
+        <span id="typed-text"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-tagline reveal">
+        Building modern web applications, AI-powered solutions,<br class="desktop-br" /> and scalable software systems.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-primary">
+          <span>View Projects</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        <button class="btn btn-outline" id="hero-resume-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          View Resume
+        </button>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="profile-ring">
+        <div class="profile-ring-inner">
+          <div class="profile-placeholder">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="45" r="22" fill="url(#pg1)"/>
+              <ellipse cx="60" cy="95" rx="35" ry="22" fill="url(#pg2)"/>
+              <defs>
+                <radialGradient id="pg1" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#00f5c8"/>
+                  <stop offset="100%" stop-color="#0070f3"/>
+                </radialGradient>
+                <radialGradient id="pg2" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#00f5c8"/>
+                  <stop offset="100%" stop-color="#0070f3"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="profile-status">
+            <span class="status-dot"></span>
+            Open to Work
+          </div>
+        </div>
+        <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+        <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
+        <div class="orbit orbit-3"><div class="orbit-dot"></div></div>
+      </div>
+      <!-- Floating tech badges -->
+      <div class="float-badge fb-1">React</div>
+      <div class="float-badge fb-2">Node.js</div>
+      <div class="float-badge fb-3">MongoDB</div>
+      <div class="float-badge fb-4">AI/ML</div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ ABOUT ════════════════════════════ -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">01 / About</span>
+        <h2 class="section-title">Who Am I?</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="about-intro">
+            Hey, I'm <strong>Rahul Kumar</strong> — a Computer Science student with a deep passion for <span class="highlight">Software Engineering</span>, <span class="highlight">Full Stack Web Development</span>, and <span class="highlight">Artificial Intelligence</span>.
+          </p>
+          <p>
+            I enjoy turning ideas into real, working products — from crafting clean UIs to building robust server-side logic. My current focus is mastering the <strong>MERN Stack</strong> and sharpening my <strong>Data Structures & Algorithms</strong> skills to write better, faster code.
+          </p>
+          <p>
+            Beyond coding, I'm deeply curious about how AI can augment software — I've already built an AI-powered interview & resume analysis tool and love exploring the space where engineering meets intelligence.
+          </p>
+          <p>
+            I'm actively seeking <strong>Software Engineering internships</strong> where I can contribute meaningfully, collaborate with talented teams, and grow as a developer.
+          </p>
+          <div class="about-contact-quick">
+            <a href="mailto:rahuld031102@gmail.com" class="contact-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              rahuld031102@gmail.com
+            </a>
+            <a href="https://github.com/rahul031102" target="_blank" class="contact-chip">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              github.com/rahul031102
+            </a>
+          </div>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card">
+            <div class="stat-number" data-target="6">0</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="2">0</div>
+            <div class="stat-label">AI Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="500">0</div>
+            <div class="stat-label">Coding Hours+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ SKILLS ════════════════════════════ -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">02 / Skills</span>
+        <h2 class="section-title">Technical Arsenal</h2>
+      </div>
+
+      <!-- Skill Filter Tabs -->
+      <div class="skill-filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="database">Database</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+      </div>
+
+      <div class="skills-grid" id="skills-grid">
+
+        <!-- Frontend -->
+        <div class="skill-card reveal" data-category="frontend">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
+          </div>
+          <h3 class="skill-name">HTML5</h3>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="frontend">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.222 2.622 10.013.003-.3 3.872-5.32.003.081 2.617 5.172-.002-.195 5.212-4.655 1.362-4.637-1.362-.323-3.988h-2.614l.632 6.85L12 19.351l5.382-1.441 1.208-13.497z"/></svg>
+          </div>
+          <h3 class="skill-name">CSS3</h3>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="frontend">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
+          </div>
+          <h3 class="skill-name">JavaScript</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="82"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="frontend">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.092-.278zm-.005 1.09c.275 0 .543.071.732.182 1.01.562 1.27 2.652.725 5.354-.2.005-.4.015-.6.025-1.04-1.046-2.137-2.004-3.273-2.852a35.92 35.92 0 0 0-1.09-2.01 35.924 35.924 0 0 0-1.22 2.067c-1.154.854-2.267 1.826-3.32 2.882-.207-.012-.41-.02-.616-.026-.547-2.698-.29-4.789.716-5.35.19-.111.46-.182.737-.182zm-10.56 1.826c.187.063.383.133.577.207a35.844 35.844 0 0 0-.344 1.318c-.418 1.854-.45 3.614-.093 4.902-1.75.705-2.836 1.625-2.836 2.463 0 .824 1.066 1.73 2.78 2.43.158.063.318.124.486.18a35.895 35.895 0 0 0 .344 1.316c.41 1.534.947 2.797 1.556 3.567a5.78 5.78 0 0 1-.67.055c-.274 0-.543-.071-.73-.183-1.013-.562-1.273-2.652-.727-5.355.203-.004.404-.015.608-.024 1.05 1.048 2.148 2.003 3.286 2.85a35.793 35.793 0 0 0 1.09 2.008 35.712 35.712 0 0 0 1.22-2.065c1.15-.85 2.264-1.822 3.317-2.877.207.012.413.02.619.025.545 2.698.287 4.79-.72 5.35-.19.112-.46.183-.734.183-.275 0-.543-.07-.73-.182-.192-.11-.378-.254-.57-.416a35.895 35.895 0 0 0 .347-1.317c.42-1.855.45-3.615.093-4.904 1.748-.703 2.835-1.622 2.835-2.46 0-.824-1.065-1.73-2.778-2.43a35.844 35.844 0 0 0-.348-1.317c-.41-1.534-.946-2.797-1.556-3.567a5.84 5.84 0 0 1 .67-.054zm-3.283.82c.188-.064.383-.133.577-.207.158.444.32.9.475 1.366-1.14.843-2.24 1.797-3.282 2.843-.205.01-.406.018-.61.024.548 2.698.29 4.789-.715 5.35-.19.112-.46.184-.736.184-.276 0-.544-.072-.732-.184-1.012-.56-1.272-2.65-.726-5.351.207-.005.41-.016.615-.026 1.046-1.047 2.143-2.002 3.28-2.85zm7.167-.82c.247.37.48.76.696 1.168-.344.02-.688.046-1.033.082-1.131.845-2.228 1.793-3.27 2.84a35.894 35.894 0 0 0-.473-1.365 35.875 35.875 0 0 0 4.08-2.725zm1.527 7.77c.345-.02.688-.046 1.033-.082a35.75 35.75 0 0 0 .473 1.364 35.885 35.885 0 0 0-4.078 2.724 35.851 35.851 0 0 0-.697-1.166c1.131-.845 2.228-1.793 3.27-2.84zm-9.73.082c.345.02.688.046 1.033.082 1.046 1.047 2.143 2.002 3.28 2.851.155.465.316.921.474 1.366a35.885 35.885 0 0 0-4.08-2.725 35.753 35.753 0 0 0-.707-1.574z"/></svg>
+          </div>
+          <h3 class="skill-name">React</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="78"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="frontend">
+          <div class="skill-icon" style="color:#38bdf8">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+          </div>
+          <h3 class="skill-name">Tailwind CSS</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-card reveal" data-category="backend">
+          <div class="skill-icon" style="color:#68a063">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.998 24c-.321 0-.641-.084-.924-.247l-2.938-1.739c-.437-.245-.224-.332-.08-.382.587-.204.706-.251 1.334-.606.066-.037.152-.023.218.017l2.256 1.339c.082.045.198.045.275 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.053-.192-.137-.242l-8.791-5.072c-.081-.047-.189-.047-.271 0L3.075 6.68c-.085.05-.139.144-.139.243v10.148c0 .097.053.189.137.236l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.891c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.017c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675c-.572-.329-.924-.944-.924-1.604V6.921c0-.66.352-1.275.924-1.604l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.795 5.082c.573.329.925.944.925 1.604v10.15c0 .659-.352 1.275-.925 1.604l-8.795 5.076c-.282.164-.602.247-.924.247zm2.715-6.996c-3.859 0-4.667-1.772-4.667-3.258 0-.141.114-.253.256-.253h1.137c.127 0 .233.092.252.217.172 1.161.683 1.746 3.022 1.746 1.861 0 2.651-.421 2.651-1.409 0-.569-.225-.992-3.117-1.276-2.419-.241-3.912-.773-3.912-2.707 0-1.784 1.503-2.846 4.022-2.846 2.828 0 4.227.981 4.404 3.089.006.07-.019.139-.065.19-.046.05-.111.079-.178.079h-1.14c-.12 0-.225-.083-.249-.2-.276-1.223-.944-1.616-2.772-1.616-2.041 0-2.278.711-2.278 1.245 0 .646.28.834 3.022 1.198 2.715.362 4.006.874 4.006 2.771-.001 1.927-1.607 3.03-4.393 3.03z"/></svg>
+          </div>
+          <h3 class="skill-name">Node.js</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="76"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="backend">
+          <div class="skill-icon" style="color:#888">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 18.588a1.529 1.529 0 01-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 01-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 011.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 011.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 000 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 002.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 01-2.589 3.957 6.272 6.272 0 01-7.306-.933 6.575 6.575 0 01-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 010 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z"/></svg>
+          </div>
+          <h3 class="skill-name">Express.js</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="74"></div></div>
+        </div>
+
+        <!-- Database -->
+        <div class="skill-card reveal" data-category="database">
+          <div class="skill-icon" style="color:#47a248">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.193 9.555c-1.264-5.58-4.252-7.474-4.384-7.602-.836-.83-1.78-1.063-2.57-.073-.22.22-1.14 1.123-2.157 3.26-.988 2.075-1.54 4.083-1.648 5.99-.124 2.153.078 3.834.635 5.16.463 1.08 1.148 1.848 1.997 2.259.86.42 1.83.565 2.897.43 1.23-.158 2.35-.685 3.33-1.565.975-.877 1.72-2.02 2.213-3.396.517-1.447.66-3.034.687-4.463zm-.79 4.072c-.43 1.21-1.056 2.188-1.858 2.905-.804.72-1.734 1.183-2.755 1.318-.864.112-1.648-.013-2.325-.37-.682-.36-1.225-.977-1.614-1.833-.514-1.148-.683-2.701-.55-4.717.1-1.745.633-3.64 1.584-5.64 1.005-2.105 1.807-2.875 1.895-2.959.03-.03.06-.055.087-.07.072-.04.152-.08.235-.08.106 0 .222.04.344.145.12.107 2.937 2.027 4.15 7.216.098.43.185.87.265 1.325a8.37 8.37 0 01-.458 2.76z"/></svg>
+          </div>
+          <h3 class="skill-name">MongoDB</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="73"></div></div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-card reveal" data-category="tools">
+          <div class="skill-icon" style="color:#f14e32">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>
+          </div>
+          <h3 class="skill-name">Git</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="tools">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <h3 class="skill-name">GitHub</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="tools">
+          <div class="skill-icon" style="color:#007acc">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.15 2.587L18.21.21a1.494 1.494 0 00-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 00-1.276.057L.327 7.261A1 1 0 00.326 8.74L3.899 12 .326 15.26a1 1 0 00.001 1.479L1.65 17.94a.999.999 0 001.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 001.704.29l4.942-2.377A1.5 1.5 0 0024 20.06V3.939a1.5 1.5 0 00-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg>
+          </div>
+          <h3 class="skill-name">VS Code</h3>
+          <div class="skill-level">Advanced</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div>
+        </div>
+
+        <div class="skill-card reveal" data-category="tools">
+          <div class="skill-icon" style="color:#ef5b25">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 01.593.24l1.03 1.03a.84.84 0 010 1.186L15.8 11.37a.84.84 0 01-1.186 0l-1.03-1.029a.84.84 0 010-1.186l1.03-1.03a.855.855 0 01.593-.24zm-4.886.56l2.218.346.07.014c.088.028.172.07.246.132a.84.84 0 01.233 1.014l-.87 1.726a.84.84 0 01-1.018.408l-2.17-.72-.086-.035a.852.852 0 01-.369-.307.84.84 0 01.088-1.085l1.432-1.336a.851.851 0 01.226-.157zm1.868 8.78a.84.84 0 01.838.725l.294 2.315a.84.84 0 01-.726.938l-1.898.24a.84.84 0 01-.939-.726l-.294-2.314a.84.84 0 01.726-.938l1.998-.24zm-5.14-.52a.84.84 0 01.682.352l1.348 1.935a.84.84 0 01-.216 1.168l-1.623 1.131a.84.84 0 01-1.169-.216l-1.348-1.935a.84.84 0 01.216-1.167l1.623-1.131a.841.841 0 01.487-.137z"/></svg>
+          </div>
+          <h3 class="skill-name">Postman</h3>
+          <div class="skill-level">Intermediate</div>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ EDUCATION ════════════════════════════ -->
+  <section id="education" class="section education-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">03 / Education</span>
+        <h2 class="section-title">Academic Journey</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2022 — 2027</span>
+              <span class="timeline-status active">Current</span>
+            </div>
+            <h3 class="timeline-title">Bachelor of Science</h3>
+            <h4 class="timeline-subtitle">Computer Science — Vishwa Vishwani Institute of Systems and Management</h4>
+            <p class="timeline-desc">
+              Pursuing a comprehensive CS degree covering algorithms, data structures, software engineering, database management, operating systems, and computer networks. Expected graduation: 2027.
+            </p>
+            <div class="timeline-tags">
+              <span>DSA</span>
+              <span>DBMS</span>
+              <span>OS</span>
+              <span>Networking</span>
+              <span>Web Technologies</span>
+              <span>Software Engineering</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-meta">
+              <span class="timeline-year">2020 — 2022</span>
+              <span class="timeline-status completed">Completed</span>
+            </div>
+            <h3 class="timeline-title">Higher Secondary Education (12th)</h3>
+            <h4 class="timeline-subtitle">BiPC Stream — Biology, Physics, Chemistry</h4>
+            <p class="timeline-desc">
+              Completed 12th grade in the BiPC stream, building a strong analytical foundation before transitioning into Computer Science and Software Development.
+            </p>
+            <div class="timeline-tags">
+              <span>Biology</span>
+              <span>Physics</span>
+              <span>Chemistry</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ PROJECTS ════════════════════════════ -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">04 / Projects</span>
+        <h2 class="section-title">Things I've Built</h2>
+      </div>
+
+      <!-- Project Filters -->
+      <div class="project-filters reveal">
+        <button class="filter-btn active" data-pfilter="all">All</button>
+        <button class="filter-btn" data-pfilter="fullstack">Full Stack</button>
+        <button class="filter-btn" data-pfilter="ai">AI / ML</button>
+        <button class="filter-btn" data-pfilter="frontend">Frontend</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project 1: AI Interview -->
+        <div class="project-card reveal" data-ptag="ai fullstack">
+          <div class="project-image">
+            <div class="project-img-placeholder ai">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="20" width="60" height="40" rx="4" stroke="#00f5c8" stroke-width="2"/>
+                <circle cx="40" cy="35" r="8" stroke="#00f5c8" stroke-width="2"/>
+                <path d="M20 55 Q40 45 60 55" stroke="#00f5c8" stroke-width="2"/>
+                <path d="M55 25 L65 15 M65 25 L55 15" stroke="#00f5c8" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/rahul031102" target="_blank" class="project-link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="project-link-btn demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+            <span class="project-badge ai-badge">AI</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">AI Interview Taker & Resume Analyzer</h3>
+            <p class="project-desc">An AI-powered platform that generates role-specific interview questions, analyzes uploaded resumes, evaluates candidate answers, and delivers detailed performance feedback.</p>
+            <div class="project-tech">
+              <span>React</span><span>Node.js</span><span>MongoDB</span><span>AI API</span><span>Express</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: ShopFlow -->
+        <div class="project-card reveal" data-ptag="fullstack">
+          <div class="project-image">
+            <div class="project-img-placeholder shop">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 25 L25 15 H55 L60 25 V65 H20 Z" stroke="#0070f3" stroke-width="2"/>
+                <path d="M30 25 C30 20 50 20 50 25" stroke="#0070f3" stroke-width="2"/>
+                <rect x="28" y="40" width="24" height="3" rx="1" fill="#0070f3" opacity="0.6"/>
+                <rect x="28" y="48" width="16" height="3" rx="1" fill="#0070f3" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/rahul031102" target="_blank" class="project-link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="project-link-btn demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+            <span class="project-badge">MERN</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">ShopFlow E-Commerce Platform</h3>
+            <p class="project-desc">A production-grade e-commerce platform with JWT authentication, product catalog, cart system, Stripe checkout, Cloudinary image upload, Redux Toolkit, and an admin dashboard.</p>
+            <div class="project-tech">
+              <span>React</span><span>Node.js</span><span>MongoDB</span><span>Redux</span><span>Stripe</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Wanderlust -->
+        <div class="project-card reveal" data-ptag="fullstack">
+          <div class="project-image">
+            <div class="project-img-placeholder travel">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 55 Q20 35 35 40 Q45 45 55 25 Q65 10 70 30" stroke="#f59e0b" stroke-width="2" fill="none"/>
+                <circle cx="40" cy="30" r="6" stroke="#f59e0b" stroke-width="2"/>
+                <path d="M40 36 L40 48" stroke="#f59e0b" stroke-width="2"/>
+                <path d="M15 60 H65" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/rahul031102" target="_blank" class="project-link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="project-link-btn demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+            <span class="project-badge travel-badge">Travel</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Wanderlust Travel Platform</h3>
+            <p class="project-desc">An Airbnb-inspired rental platform featuring travel destination discovery, property listings, trip planning tools, Mapbox integration, Framer Motion animations, and Docker deployment.</p>
+            <div class="project-tech">
+              <span>React</span><span>Vite</span><span>Tailwind</span><span>Mapbox</span><span>Zustand</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: WeatherX -->
+        <div class="project-card reveal" data-ptag="frontend">
+          <div class="project-image">
+            <div class="project-img-placeholder weather">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="30" r="12" stroke="#60a5fa" stroke-width="2"/>
+                <path d="M40 14 V10 M40 50 V54 M56 30 H60 M20 30 H16" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+                <path d="M20 55 Q30 45 45 50 Q55 52 60 47" stroke="#60a5fa" stroke-width="2" fill="none"/>
+                <path d="M25 62 L27 68 M35 60 L37 66 M45 61 L47 67" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/rahul031102" target="_blank" class="project-link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="project-link-btn demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+            <span class="project-badge weather-badge">API</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">WeatherX Weather Portal</h3>
+            <p class="project-desc">A real-time weather dashboard integrating weather APIs with geolocation support, 5-day forecasts, animated weather conditions, and a sleek responsive UI.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Weather API</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Chrono -->
+        <div class="project-card reveal" data-ptag="frontend">
+          <div class="project-image">
+            <div class="project-img-placeholder chrono">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="42" r="22" stroke="#a78bfa" stroke-width="2"/>
+                <path d="M40 42 L40 28" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
+                <path d="M40 42 L52 50" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <path d="M33 15 H47" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="40" cy="42" r="2" fill="#a78bfa"/>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/rahul031102" target="_blank" class="project-link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="project-link-btn demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+            <span class="project-badge chrono-badge">UI</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Chrono Stopwatch</h3>
+            <p class="project-desc">A precision stopwatch application with lap tracking, split timing, smooth animations, and a visually striking modern UI built with pure HTML, CSS, and JavaScript.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: TicTacToe AI -->
+        <div class="project-card reveal" data-ptag="ai frontend">
+          <div class="project-image">
+            <div class="project-img-placeholder tictac">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="15" x2="30" y2="65" stroke="#f43f5e" stroke-width="2"/>
+                <line x1="50" y1="15" x2="50" y2="65" stroke="#f43f5e" stroke-width="2"/>
+                <line x1="15" y1="32" x2="65" y2="32" stroke="#f43f5e" stroke-width="2"/>
+                <line x1="15" y1="50" x2="65" y2="50" stroke="#f43f5e" stroke-width="2"/>
+                <path d="M18 18 L27 27 M27 18 L18 27" stroke="#00f5c8" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="40" cy="41" r="5" stroke="#f59e0b" stroke-width="2"/>
+                <path d="M36 55 L44 63 M44 55 L36 63" stroke="#00f5c8" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/rahul031102" target="_blank" class="project-link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="project-link-btn demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+            <span class="project-badge ai-badge">AI</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">AI Tic-Tac-Toe Game</h3>
+            <p class="project-desc">An intelligent Tic-Tac-Toe game featuring an unbeatable AI opponent built using the Minimax algorithm, winner detection, score tracking, and a fully responsive gameplay interface.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Minimax AI</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ ACCOMPLISHMENTS ════════════════════════════ -->
+  <section id="accomplishments" class="section accomplishments-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">05 / Achievements</span>
+        <h2 class="section-title">Accomplishments</h2>
+      </div>
+      <div class="ach-grid">
+
+        <div class="ach-card reveal">
+          <div class="ach-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>MERN Stack Mastery</h3>
+          <p>Built two production-grade full-stack applications (ShopFlow & Wanderlust) demonstrating end-to-end development capabilities with modern tooling.</p>
+          <span class="ach-year">2024</span>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="ach-icon ai-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm0 0v4m0 14v-4m10-6h-4M6 12H2m15.66-7.66l-2.83 2.83M8.17 15.83l-2.83 2.83m11.32 0l-2.83-2.83M8.17 8.17L5.34 5.34"/></svg>
+          </div>
+          <h3>AI-Powered Application</h3>
+          <p>Designed and built an AI Interview Taker & Resume Analyzer integrating LLM APIs for intelligent question generation and resume evaluation feedback.</p>
+          <span class="ach-year">2024</span>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="ach-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>6 Portfolio Projects</h3>
+          <p>Successfully delivered 6 fully functional, responsive web applications covering e-commerce, travel, weather, AI, and game development domains.</p>
+          <span class="ach-year">2023–24</span>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="ach-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <h3>10+ Technologies</h3>
+          <p>Mastered a comprehensive tech stack spanning frontend, backend, database, and DevOps tools — from React to Docker and CI/CD pipelines.</p>
+          <span class="ach-year">Ongoing</span>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="ach-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg>
+          </div>
+          <h3>DSA Progress</h3>
+          <p>Consistently solving Data Structures & Algorithms problems on LeetCode to build strong problem-solving fundamentals for technical interviews.</p>
+          <span class="ach-year">Ongoing</span>
+        </div>
+
+        <div class="ach-card reveal">
+          <div class="ach-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Open Source Contributor</h3>
+          <p>Actively maintaining public GitHub repositories, contributing to open source projects, and building a professional developer profile online.</p>
+          <span class="ach-year">Ongoing</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ EXPERIENCE ════════════════════════════ -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">06 / Experience</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal glass-card">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="8" fill="rgba(0,245,200,0.1)"/>
+                <path d="M12 20 H28 M20 12 V28" stroke="#00f5c8" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="exp-title">Web Development Intern</h3>
+              <span class="exp-company">Open to Opportunities</span>
+            </div>
+            <span class="exp-status seeking">Seeking</span>
+          </div>
+          <p class="exp-desc">
+            Actively seeking a Software Engineering or Web Development internship where I can apply my MERN stack skills, contribute to real-world projects, collaborate with experienced developers, and grow as a full-stack engineer.
+          </p>
+          <div class="exp-skills">
+            <span>MERN Stack</span><span>REST APIs</span><span>Git</span><span>Problem Solving</span>
+          </div>
+        </div>
+
+        <div class="exp-card reveal glass-card">
+          <div class="exp-header">
+            <div class="exp-logo">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="8" fill="rgba(0,112,243,0.1)"/>
+                <path d="M10 28 L20 12 L30 28" stroke="#0070f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 22 H26" stroke="#0070f3" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="exp-title">Freelance Developer</h3>
+              <span class="exp-company">Self-Employed</span>
+            </div>
+            <span class="exp-status current">Active</span>
+          </div>
+          <p class="exp-desc">
+            Working on personal and client-facing web development projects, building full-stack applications, and continuously expanding technical skills through hands-on project work in the MERN ecosystem.
+          </p>
+          <div class="exp-skills">
+            <span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">07 / Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-sub">I'm actively looking for internship opportunities. Whether you have a role, a project idea, or just want to connect — my inbox is open.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-card glass-card">
+            <a href="mailto:rahuld031102@gmail.com" class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">Email</span>
+                <span class="contact-item-value">rahuld031102@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://github.com/rahul031102" target="_blank" class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">GitHub</span>
+                <span class="contact-item-value">github.com/rahul031102</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/rahul-kumar-7536a62b9" target="_blank" class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">LinkedIn</span>
+                <span class="contact-item-value">linkedin.com/in/rahul-kumar-7536a62b9</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal">
+          <form class="contact-form glass-card" id="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="off" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="off" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary submit-btn">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="form-success" id="form-success">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+              Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo"><span class="logo-bracket">{</span>RK<span class="logo-bracket">}</span></span>
+          <p>Rahul Kumar — Aspiring Full Stack Developer building the future, one commit at a time.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Sections</h4>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+          </div>
+          <div class="footer-col">
+            <h4>More</h4>
+            <a href="#accomplishments">Achievements</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="https://github.com/rahul031102" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/rahul-kumar-7536a62b9" target="_blank">LinkedIn</a>
+            <a href="mailto:rahuld031102@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Rahul Kumar. Crafted with ♥ and lots of coffee.</p>
+        <div class="footer-social">
+          <a href="https://github.com/rahul031102" target="_blank" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/rahul-kumar-7536a62b9" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:rahuld031102@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ════════════════════════════ RESUME MODAL ════════════════════════════ -->
+  <div id="resume-modal" class="resume-modal" role="dialog" aria-modal="true" aria-label="Resume">
+    <div class="resume-modal-backdrop" id="resume-backdrop"></div>
+    <div class="resume-modal-box">
+      <!-- Header -->
+      <div class="resume-modal-header">
+        <div class="resume-modal-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Rahul Kumar — Resume</span>
+        </div>
+        <button class="resume-modal-close" id="resume-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Resume Body — rendered in HTML, no PDF needed -->
+      <div class="resume-modal-body">
+        <div class="rv-page">
+
+          <!-- NAME + ROLE -->
+          <div class="rv-top">
+            <h1 class="rv-name">Rahul Kumar</h1>
+            <p class="rv-role">FULL STACK DEVELOPER · SOFTWARE ENGINEERING INTERN</p>
+            <div class="rv-contact-row">
+              <span>India · +91 9392776927</span>
+              <a href="mailto:rahuld031102@gmail.com">rahuld031102@gmail.com</a>
+              <a href="https://linkedin.com/in/rahul-kumar-7536a62b9" target="_blank">linkedin.com/in/rahul-kumar-7536a62b9</a>
+              <a href="https://github.com/rahul031102" target="_blank">github.com/rahul031102</a>
+            </div>
+          </div>
+
+          <!-- SUMMARY -->
+          <div class="rv-section">
+            <h2 class="rv-section-title">Summary</h2>
+            <p class="rv-para">Full Stack Software Engineer with practical experience architecting scalable REST APIs, secure authentication systems, and AI-integrated web applications using Node.js, Express.js, MongoDB, and React. Delivered production-ready, full-stack solutions spanning backend system design, cloud infrastructure, database architecture, and responsive frontend development. Seeking a Software Engineering Internship to contribute to high-impact engineering teams focused on building performant, scalable software.</p>
+          </div>
+
+          <!-- SKILLS -->
+          <div class="rv-section">
+            <h2 class="rv-section-title">Technical Skills</h2>
+            <div class="rv-skills-table">
+              <div class="rv-skill-row"><span class="rv-skill-cat">Languages</span><span>JavaScript (ES6+), Python, PHP, C</span></div>
+              <div class="rv-skill-row"><span class="rv-skill-cat">Backend</span><span>Node.js, Express.js, Flask, REST API Design, Session &amp; JWT Authentication, Middleware Architecture</span></div>
+              <div class="rv-skill-row"><span class="rv-skill-cat">Frontend</span><span>React.js, Tailwind CSS, HTML5, CSS3, Bootstrap, EJS</span></div>
+              <div class="rv-skill-row"><span class="rv-skill-cat">Databases</span><span>MongoDB, Mongoose ODM, SQLite</span></div>
+              <div class="rv-skill-row"><span class="rv-skill-cat">Infrastructure</span><span>Render, Cloudinary CDN, Mapbox GL JS, MongoDB Atlas, Environment Configuration</span></div>
+              <div class="rv-skill-row"><span class="rv-skill-cat">Dev Tools</span><span>Git, GitHub, Postman, VS Code</span></div>
+              <div class="rv-skill-row"><span class="rv-skill-cat">Concepts</span><span>MVC Architecture, RESTful Routing, API Integration, CRUD Operations, Cloud Deployment</span></div>
+            </div>
+          </div>
+
+          <!-- PROJECTS -->
+          <div class="rv-section">
+            <h2 class="rv-section-title">Projects</h2>
+
+            <div class="rv-project">
+              <div class="rv-project-header">
+                <span class="rv-project-name">AI Interview &amp; Resume Analyzer</span>
+                <span class="rv-project-tech">React · Node.js · Express.js · MongoDB · AI APIs · Tailwind CSS</span>
+              </div>
+              <ul class="rv-bullets">
+                <li>Architected an end-to-end AI platform for mock interviews, resume analysis, and ATS optimization — integrating AI APIs for question generation, response evaluation, and resume scoring.</li>
+                <li>Designed RESTful backend with modular Express.js routing, session-based auth, and persistent MongoDB storage; debugged async prompt pipelines and API response parsing issues.</li>
+                <li>Developed a responsive React frontend supporting dynamic interview session flows and real-time resume editing with component-driven architecture using Tailwind CSS.</li>
+              </ul>
+            </div>
+
+            <div class="rv-project">
+              <div class="rv-project-header">
+                <span class="rv-project-name">ShopFlow — Full Stack Commerce &amp; Shipping Platform</span>
+                <span class="rv-project-tech">Node.js · Express.js · MongoDB · React · REST APIs · Render</span>
+              </div>
+              <ul class="rv-bullets">
+                <li>Engineered a production-grade, full-stack commerce platform encompassing secure authentication, product catalog management, cart system, order lifecycle processing, shipment tracking, and role-based access control.</li>
+                <li>Designed scalable REST APIs for inventory, order status transitions, and shipping workflows; troubleshot deployment issues across Render and MongoDB Atlas environments.</li>
+                <li>Developed a modular React frontend with structured state management and adaptive UI components across commerce and logistics workflows.</li>
+              </ul>
+            </div>
+
+            <div class="rv-project">
+              <div class="rv-project-header">
+                <span class="rv-project-name">WanderLust — Full Stack Rental Platform</span>
+                <span class="rv-project-tech">Node.js · Express.js · MongoDB · Passport.js · Cloudinary · Mapbox · Render</span>
+              </div>
+              <ul class="rv-bullets">
+                <li>Architected an Airbnb-style rental platform with full listing CRUD, Cloudinary image pipeline, and Mapbox GL JS geolocation; debugged MongoDB Atlas connectivity and Render deployment issues.</li>
+                <li>Implemented session-based authentication via Passport.js with role-protected middleware, encrypted credentials, and MVC architecture using RESTful routing and Mongoose ODM.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ACHIEVEMENTS -->
+          <div class="rv-section">
+            <h2 class="rv-section-title">Achievements</h2>
+            <ul class="rv-bullets">
+              <li>Designed and deployed 3+ production-grade, full-stack applications leveraging the MERN stack with AI and third-party API integrations.</li>
+              <li>Architected scalable backend systems encompassing secure authentication, RESTful API development, cloud infrastructure deployment, and relational/NoSQL database management.</li>
+              <li>Engineered AI-powered software platforms addressing real-world workflows in technical interview preparation and ATS-focused resume optimization.</li>
+            </ul>
+          </div>
+
+          <!-- EDUCATION -->
+          <div class="rv-section">
+            <h2 class="rv-section-title">Education</h2>
+            <div class="rv-edu">
+              <div class="rv-edu-left">
+                <span class="rv-edu-degree">Bachelor of Science in Computer Science</span>
+                <span class="rv-edu-school">Vishwa Vishwani Institute of Systems and Management</span>
+                <span class="rv-edu-courses">Relevant Coursework: Data Structures &amp; Algorithms · Operating Systems · Database Management Systems · Computer Networks · Web Technologies · Software Engineering</span>
+              </div>
+              <span class="rv-edu-year">Expected 2027</span>
+            </div>
+          </div>
+
+        </div><!-- /rv-page -->
+      </div><!-- /resume-modal-body -->
+
+      <!-- Footer actions -->
+      <div class="resume-modal-footer">
+        <span class="rv-footer-note">💡 Want a PDF copy? Email me at rahuld031102@gmail.com</span>
+        <button class="btn btn-primary rv-print-btn" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / Save PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
